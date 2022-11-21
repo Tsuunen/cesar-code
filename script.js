@@ -17,6 +17,7 @@ function getNumberOfLetter(letter) {
   }
 }
 
+
 function getLetterOfNumber(num) {
   for (let index = 0; index < l.length; index++) {
     if (num === index + 1) {
@@ -24,6 +25,7 @@ function getLetterOfNumber(num) {
     }     
   }
 }
+
 
 function decode() {
   const decallage = lettreCod.selectedIndex;
@@ -37,7 +39,7 @@ function decode() {
     result.style.color = "rgb(255, 25, 25)"
     return
   }
-  
+
   for (let index = 0; index < phr.length; index++) {
     if (chr.indexOf(phr[index]) === -1) {
       let numValue =  getNumberOfLetter(phr[index]) - decallage;
@@ -65,6 +67,7 @@ function decode() {
   result.textContent = phrDec;
   result.style.color = "rgb(255, 255, 255)"
 }
+
 
 function code() {
   const decallage = lettreCod.selectedIndex;
@@ -106,6 +109,7 @@ function code() {
   result.textContent = phrDec;
   result.style.color = "rgb(255, 255, 255)"
 }
+
 
 decodeButton.onclick = () => {
   decode();
