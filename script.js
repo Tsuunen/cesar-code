@@ -125,7 +125,6 @@ function updateDisplay() {
     lettreCod.style.display = "none";
     phrCod.style.display = "block";
   }
-  console.log("tet");
 }
 
 
