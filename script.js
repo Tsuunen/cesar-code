@@ -3,11 +3,16 @@ const lettreCod = document.getElementById("lettreCod");
 const codeButton = document.getElementById("codeButton");
 const decodeButton = document.getElementById("decodeButton");
 const result = document.getElementById("result");
+const radioLettre = document.getElementById("radioLettre");
+const radioPhrase = document.getElementById("radioPhrase");
+const phrCod = document.getElementById("phraseCodeuse");
 
 const l = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M",
           "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
   
 const chr = [" ", "'", "\n", ",", "."];
+
+let display = 1;
 
 function getNumberOfLetter(letter) { 
   for (let index = 0; index < l.length; index++) {
@@ -110,11 +115,29 @@ function code() {
   result.style.color = "rgb(255, 255, 255)"
 }
 
+function updateDisplay() {
+  display *= -1;
+  if (display < 1) {
+    lettreCod.style.display = "block";
+    phrCod.style.display = "none";
+  }
+  else {
+    lettreCod.style.display = "none";
+    phrCod.style.display = "block";
+  }
+  console.log("tet");
+}
+
 
 decodeButton.onclick = () => {
-  decode();
+  decode();  
 }
 
 codeButton.onclick = () => {
   code();
 }
+
+radioLettre.addEventListener('change', updateDisplay);
+radioPhrase.addEventListener('change', updateDisplay);
+
+updateDisplay();
