@@ -54,7 +54,6 @@ function getLettreCodeuse() {
     let lettres = [];
     for (let lettre = 0; lettre < listeMots[mot].length; lettre++) {lettre
       if (lettres.indexOf(listeMots[mot][lettre]) >= 0) {
-        console.log(listeMots[mot][lettre])
         return listeMots[mot][lettre];
       }
       else {
@@ -79,7 +78,6 @@ function decode() {
     let lcod = getLettreCodeuse();
     lcod = lcod.toUpperCase();
     decallage = getNumberOfLetter(lcod);
-    console.log(decallage);
   }
 
   if (decallage === 0) {
@@ -123,6 +121,12 @@ function code() {
   let phrDec = "";
 
   phr = phr.toUpperCase();
+
+  if (display > 0) {
+    let lcod = getLettreCodeuse();
+    lcod = lcod.toUpperCase();
+    decallage = getNumberOfLetter(lcod);
+  } 
 
   if (decallage === 0) {
     result.textContent = "Veuillez selectionner une lettre codeuse";
