@@ -32,6 +32,40 @@ function getLetterOfNumber(num) {
 }
 
 
+function slicePhrase(phr) {
+  let derIndice = -1;
+  let mots = [];
+
+  for (let index = 0; index < phr.length; index++) {
+    if (phr[index] == " " || phr[index] == "\n") {
+      mots.push(phr.slice(derIndice + 1, index))
+      derIndice = index;
+    }
+  }
+  mots.push(phr.slice(derIndice + 1));
+  return mots;
+}
+
+
+function getLettreCodeuse() {
+  let listeMots = slicePhrase(phrCod.value);
+  
+  for (let mot = 0; mot < listeMots.length; mot++) {
+    let lettres = [];
+    for (let lettre = 0; lettre < listeMots[mot].length; lettre++) {lettre
+      if (lettres.indexOf(listeMots[mot][lettre]) >= 0) {
+        return "oui";
+      }
+      else {
+        lettres.push(listeMots[mot][lettre]); 
+        return "oui";
+      }
+    }
+  }
+  return "non";
+}
+
+
 function decode() {
   const decallage = lettreCod.selectedIndex;
   let phr = textArea.value;
@@ -117,16 +151,17 @@ function code() {
 
 function updateDisplay() {
   display *= -1;
-  if (display < 1) {
+  if (display < 0) {
     lettreCod.style.display = "block";
     phrCod.style.display = "none";
+    lettreCod.style.marginTop = "-15px";
   }
   else {
     lettreCod.style.display = "none";
     phrCod.style.display = "block";
+    phrCod.style.marginBottom = "-15px";
   }
 }
-
 
 decodeButton.onclick = () => {
   decode();  
