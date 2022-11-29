@@ -54,15 +54,16 @@ function getLettreCodeuse() {
     let lettres = [];
     for (let lettre = 0; lettre < listeMots[mot].length; lettre++) {lettre
       if (lettres.indexOf(listeMots[mot][lettre]) >= 0) {
-        return "oui";
+        return listeMots[mot][lettre];
       }
       else {
-        lettres.push(listeMots[mot][lettre]); 
-        return "oui";
+        lettres.push(listeMots[mot][lettre]);
       }
     }
   }
-  return "non";
+  result.textContent = "Phrase codeuse invalide";
+  result.style.color = "rgb(255, 25, 25)";
+  return;
 }
 
 
@@ -75,8 +76,8 @@ function decode() {
 
   if (decallage === 0) {
     result.textContent = "Veuillez selectionner une lettre codeuse";
-    result.style.color = "rgb(255, 25, 25)"
-    return
+    result.style.color = "rgb(255, 25, 25)";
+    return;
   }
 
   for (let index = 0; index < phr.length; index++) {
@@ -104,7 +105,7 @@ function decode() {
     }
   }
   result.textContent = phrDec;
-  result.style.color = "rgb(255, 255, 255)"
+  result.style.color = "rgb(255, 255, 255)";
 }
 
 
@@ -117,8 +118,8 @@ function code() {
 
   if (decallage === 0) {
     result.textContent = "Veuillez selectionner une lettre codeuse";
-    result.style.color = "rgb(255, 25, 25)"
-    return
+    result.style.color = "rgb(255, 25, 25)";
+    return;
   }
   
   for (let index = 0; index < phr.length; index++) {
@@ -146,7 +147,7 @@ function code() {
     }
   }
   result.textContent = phrDec;
-  result.style.color = "rgb(255, 255, 255)"
+  result.style.color = "rgb(255, 255, 255)";
 }
 
 function updateDisplay() {
